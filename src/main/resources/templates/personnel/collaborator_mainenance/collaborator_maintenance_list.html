@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Collaborator_maintenance</title>
+</head>
+<body>
+
+<div th:if="${ #lists.isEmpty(technicalMaintenancePersonnelList)}">
+    <p>There are no collaborator maintenance</p>
+</div>
+<div th:if="${technicalMaintenancePersonnelList != null}">
+    <h2>All collaborator maintenance</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Collaborator maintenance ID</th>
+            <th>Name</th>
+            <th>Middle name</th>
+            <th>Lastname</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="technicalMaintenancePersonnel : ${technicalMaintenancePersonnelList}">
+            <td th:text="${technicalMaintenancePersonnel.collaboratorMaintenanceID}"></td>
+            <td th:text="${technicalMaintenancePersonnel.name}"></td>
+            <td th:text="${technicalMaintenancePersonnel.middleName}"></td>
+            <td th:text="${technicalMaintenancePersonnel.lastName}"></td>
+            <td><a th:href="@{service_edit/{id}(id=${technicalMaintenancePersonnel.collaboratorMaintenanceID})}">Edit</a></td>
+            <td><a th:href="@{service_delete/{id}(id=${technicalMaintenancePersonnel.collaboratorMaintenanceID})}">Delete</a></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <p><a href="/hotel_management/personnel/collaborator_maintenance/collaborator_maintenance_create">Add collaborator maintenance</a></p>
+</div>
+
+</body>
+</html>

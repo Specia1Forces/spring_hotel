@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Clients</title>
+</head>
+<body>
+
+
+
+       <div th:if="${#lists.isEmpty(clientOfHotelList)}">
+          <p>No clients</p>
+       </div>
+       <div th:if="${clientOfHotelList != null}">
+          <h2>Clients</h2>
+          <table>
+              <thead>
+              <tr>
+                  <th>Client ID</th>
+                  <th>Name</th>
+                  <th>Middle name</th>
+                  <th>Last name</th>
+                  <th>Gender</th>
+                  <th>Birthdate</th>
+                  <th>Address</th>
+                  <th>Phone</th>
+              </tr>
+              </thead>
+
+              <tbody>
+              <tr th:each="clientOfHotel : ${clientOfHotelList}">
+                  <td th:text="${clientOfHotel.clientId}"></td>
+                  <td th:text="${clientOfHotel.name}"></td>
+                  <td th:text="${clientOfHotel.middleName}"></td>
+                  <td th:text="${clientOfHotel.lastName}"></td>
+                  <td th:text="${clientOfHotel.gender}"></td>
+                  <td th:text="${clientOfHotel.Birthdate}"></td>
+                  <td th:text="${clientOfHotel.address}"></td>
+                  <td th:text="${clientOfHotel.phone}"></td>
+
+
+                  <td><a th:href="@{clientOfHotel_edit/{id}(id=${clientOfHotel.clientId})}">Edit</a></td>
+                  <td><a th:href="@{clientOfHotel_delete/{id}(id=${clientOfHotel.clientId})}">Delete</a></td>
+              </tr>
+              </tbody>
+
+    </table>
+
+    <p><a href="/hotel_management/clients_and_contracts/client_of_hotel_create">Add clients</a></p>
+</div>
+
+
+</body>
+</html>

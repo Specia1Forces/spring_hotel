@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Create account</title>
+</head>
+<body>
+<h1>Create accounts</h1>
+
+<form th:method="PATCH" th:action="@{/hotel_management/room_reservations/add_accounts}" th:object="${accounts}">
+    <label for="person">Выберите бронирование:</label>
+    <select th:object="${booking}" th:field="*{reservationId}" id="person">
+        <option th:each="booking : ${bookingList}" th:value="${booking.getReservationId()}"
+                th:text="${booking.reservationId}"></option>
+    </select>
+    <br/>
+    <label for="Amount to be paid">Enter Amount to be paid: </label>
+    <input type="text" th:field="${accounts.amountToBePaid}" id="Amount to be paid"/>
+    <br/>
+    <label for="Amount of the prepayment">Enter term of stay: </label>
+    <input type="text" th:field="${accounts.amountOfPrepayment}" id="Amount of the prepayment"/>
+    <br/>
+    <label for="Amount for additionalServices">Enter Amount for additionalServices: </label>
+    <input type="text" th:field="${accounts.amountForAdditionalServices}" id="Amount for additionalServices"/>
+    <br/>
+
+
+
+
+    <!--
+    <label for="dateConclusionAgreement">Enter date conclusion agreement: </label>
+    <input type="text" th:field="${contracts.dateConclusionAgreement}" id="dateConclusionAgreement"/>
+    <br/>
+    -->
+
+    <input type="submit" value="Create contracts" />
+</form>
+
+
+</body>
+</html>

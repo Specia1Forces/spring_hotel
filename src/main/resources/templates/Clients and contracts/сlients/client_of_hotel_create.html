@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Add client</title>
+</head>
+<body>
+<!--
+<form action="#" th:action="@{/user-create}" th:object="${user}" method="post">
+  <label for="firstName">Name of Service</label>
+  <input type="text" th:field="*{firstName}" id="firstName" placeholder="First Name">
+  <label for="lastName">Service Price</label>
+  <input type="text" th:field="*{lastName}" id="lastName" placeholder="Last Name">
+  <input type="submit" value="Create User">
+</form>
+-->
+
+<form th:method="POST" th:action="@{/hotel_management/clients_and_contracts}" th:object="${clientOfHotel}">
+    <label for="name">Enter name: </label>
+    <input type="text" th:field="${clientOfHotel.name}" id="name"/>
+    <br/>
+    <label for="middleName">Enter middle name: </label>
+    <input type="text" th:field="${clientOfHotel.middleName}" id="middleName"/>
+    <br/>
+    <label for="lastName">Enter last name: </label>
+    <input type="text" th:field="${clientOfHotel.lastName}" id="lastName"/>
+    <br/>
+    <label for="gender">Enter gender: </label>
+    <input type="text" th:field="${clientOfHotel.gender}" id="gender"/>
+    <br/>
+    <label for="Birthdate">Enter Birthdate: (dd/mm/yyyy) </label>
+    <input type="text" th:field="${clientOfHotel.birthdate}" id="Birthdate"/>
+    <br/>
+    <label for="address">Enter address: </label>
+    <input type="text" th:field="${clientOfHotel.address}" id="address"/>
+    <br/>
+    <label for="phone">Enter phone: </label>
+    <input type="text" th:field="${clientOfHotel.phone}" id="phone"/>
+    <br/>
+
+    <input type="submit" value="Add Client">
+</form>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Add maid</title>
+</head>
+<body>
+
+
+<form th:method="POST" th:action="@{/hotel_management/personnel/maids}" th:object="${maids}">
+    <label for="name">Enter name: </label>
+    <input type="text" th:field="${maids.name}" id="name"/>
+    <br/>
+    <label for="middleName">Enter middle name: </label>
+    <input type="text" th:field="${maids.middleName}" id="middleName"/>
+    <br/>
+    <label for="lastName">Enter last name: </label>
+    <input type="text" th:field="${maids.lastName}" id="lastName"/>
+    <br/>
+    <input type="submit" value="Add maids">
+</form>
+
+
+</body>
+</html>

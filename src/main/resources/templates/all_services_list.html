@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>All services</title>
+</head>
+<body>
+
+<div th:if="${ #lists.isEmpty(allServicesList)}">
+    <p>There are no services</p>
+</div>
+<div th:if="${allServicesList != null}">
+    <h2>All Services</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Service ID</th>
+            <th>Name of Service</th>
+            <th>Service Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="allServices : ${allServicesList}">
+            <td th:text="${allServices.serviceId}"></td>
+            <td th:text="${allServices.name}"></td>
+            <td th:text="${allServices.servicePrice}"></td>
+            <td><a th:href="@{service_edit/{id}(id=${allServices.serviceId})}">Edit</a></td>
+            <td><a th:href="@{service_delete/{id}(id=${allServices.serviceId})}">Delete</a></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <p><a href="/service_create">Create service</a></p>
+</div>
+
+<!--
+        <h2>All Services</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Service ID</th>
+                <th>Name of Service</th>
+                <th>Service Price</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="allServices : ${allServicesList}">
+                <td th:text="${allServices.serviceId}"></td>
+                <td th:text="${allServices.name}"></td>
+                <td th:text="${allServices.servicePrice}"></td>
+                <td><a th:href="@{user-update/{id}(id=${allServices.serviceId})}">Edit</a></td>
+                <td><a th:href="@{user-delete/{id}(id=${allServices.serviceId})}">Delete</a></td>
+            </tr>
+            </tbody>
+        </table>
+
+    <p><a href="/service_create">Create user</a></p>
+
+
+        <div th:switch="${{allServicesList}">
+            <h2 th:case="null">No users found!</h2>
+            <div th:case="*">
+                <h2>All Services</h2>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Service ID</th>
+                        <th>Name of Service</th>
+                        <th>Service Price</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="allServices : ${allServicesList}">
+                        <td th:text="${allServices.serviceId}"></td>
+                        <td th:text="${allServices.name}"></td>
+                        <td th:text="${allServices.servicePrice}"></td>
+                        <td><a th:href="@{user-update/{id}(id=${allServices.serviceId})}">Edit</a></td>
+                        <td><a th:href="@{user-delete/{id}(id=${allServices.serviceId})}">Delete</a></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+            <p><a href="/user-create">Create user</a></p>
+        </div>
+-->
+
+
+
+</body>
+</html>

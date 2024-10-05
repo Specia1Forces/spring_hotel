@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Accounts</title>
+</head>
+<body>
+
+<div th:if="${#lists.isEmpty(accountsList)}">
+    <p>There are no Accounts</p>
+</div>
+<div th:if="${accountsList != null}">
+    <h2>All Accounts</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Account number</th>
+            <th>Amount to be paid</th>
+            <th>Amount Of Prepayment</th>
+            <th>Amount For Additional Services</th>
+            <th>booking</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="accounts : ${accountsList}">
+            <td th:text="${accounts.accountNumber}"></td>
+            <td th:text="${accounts.amountToBePaid}"></td>
+            <td th:text="${accounts.amountOfPrepayment}"></td>
+            <td th:text="${accounts.amountForAdditionalServices}"></td>
+            <td th:text="${accounts.booking}"></td>
+
+
+            <td><a th:href="@{service_edit/{id}(id=${accounts.accountNumber})}">Edit</a></td>
+            <td><a th:href="@{service_delete/{id}(id=${accounts.accountNumber})}">Delete</a></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <p><a href="/service_create">Create Accounts</a></p>
+</div>
+
+
+</body>
+</html>

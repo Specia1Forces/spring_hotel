@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Booking</title>
+</head>
+<body>
+
+<div th:if="${#lists.isEmpty(bookingList)}">
+    <p>There are no reservation/p>
+</div>
+<div th:if="${bookingList != null}">
+    <h2>All reservation</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>reservation Id</th>
+            <th>settlement Date</th>
+            <th>eviction Date</th>
+            <th>total Amount Of Payment</th>
+            <th>prepayment Status</th>
+            <th>booking Status</th>
+            <th>residence Status</th>
+            <th>client Of Hotel1</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="booking : ${bookingList}">
+            <td th:text="${booking.reservationId}"></td>
+            <td th:text="${booking.settlementDate}"></td>
+            <td th:text="${booking.evictionDate}"></td>
+            <td th:text="${booking.totalAmountOfPayment}"></td>
+            <td th:text="${booking.prepaymentStatus}"></td>
+            <td th:text="${booking.bookingStatus}"></td>
+            <td th:text="${booking.residenceStatus}"></td>
+            <td th:text="${booking.clientOfHotel1}"></td>
+            <td><a th:href="@{service_edit/{id}(id=${booking.reservationId})}">Edit</a></td>
+            <td><a th:href="@{service_delete/{id}(id=${booking.reservationId})}">Delete</a></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <p><a href="/service_create">Create reservation</a></p>
+</div>
+
+
+
+
+</body>
+</html>

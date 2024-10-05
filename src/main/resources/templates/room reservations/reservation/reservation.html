@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Create reservation</title>
+</head>
+<body>
+<h1>Create reservation</h1>
+
+<form th:method="PATCH" th:action="@{/hotel_management/room_reservations/add}" th:object="${booking}">
+    <label for="person">Выберите человека:</label>
+    <select th:object="${clientOfHotel}" th:field="*{clientId}" id="person">
+        <option th:each="clientOfHotel : ${clientOfHotelList}" th:value="${clientOfHotel.getClientId()}"
+                th:text="${clientOfHotel.clientId}"></option>
+    </select>
+    <br/>
+    <label for="Settlement date">Enter Settlement date: (dd/mm/yyyy)</label>
+    <input type="text" th:field="${booking.settlementDate}" id="Settlement date"/>
+    <br/>
+    <label for="Eviction date">Enter Eviction date:(dd/mm/yyyy) </label>
+    <input type="text" th:field="${booking.evictionDate}" id="Eviction date"/>
+    <br/>
+    <label for="Total amount of the payment">Enter Total amount of the payment: </label>
+    <input type="text" th:field="${booking.TotalAmountOfPayment}" id="Total amount of the payment"/>
+    <br/>
+    <label for="Prepayment status">Enter Prepayment status: </label>
+    <input type="text" th:field="${booking.prepaymentStatus}" id="Prepayment status"/>
+    <br/>
+    <label for="Booking status">Enter Booking status: </label>
+    <input type="text" th:field="${booking.bookingStatus}" id="Booking status"/>
+    <br/>
+    <label for="Residence status">Enter Residence status: </label>
+    <input type="text" th:field="${booking.residenceStatus}" id="Residence status"/>
+    <br/>
+
+    <!--
+    <label for="dateConclusionAgreement">Enter date conclusion agreement: </label>
+    <input type="text" th:field="${contracts.dateConclusionAgreement}" id="dateConclusionAgreement"/>
+    <br/>
+    -->
+
+    <input type="submit" value="Create reservation" />
+</form>
+
+
+</body>
+</html>

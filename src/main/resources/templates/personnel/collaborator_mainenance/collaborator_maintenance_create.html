@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Add maid</title>
+</head>
+<body>
+
+
+<form th:method="POST" th:action="@{/hotel_management/personnel/collaborator_maintenance}" th:object="${technicalMaintenancePersonnel}">
+   <!--
+    <label for="name">Enter name: </label>
+    <input type="text" th:field="*{technicalMaintenancePersonnel.name}" id="name"/>
+    <br/>
+   <label for="middleName">Enter middle name: </label>
+    <input type="text" th:field="*{technicalMaintenancePersonnel.middleName}" id="middleName"/>
+    <br/>
+
+
+
+    <label for="lastName">Enter last name: </label>
+    <input type="text" th:field="*{technicalMaintenancePersonnel.lastName}" id="lastName"/>
+    <br/>
+    -->
+
+    <input type="submit" value="Add collaborator">
+</form>
+
+
+
+
+</body>
+</html>

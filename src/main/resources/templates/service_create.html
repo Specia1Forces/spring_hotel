@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Create service</title>
+</head>
+<body>
+<!--
+<form action="#" th:action="@{/user-create}" th:object="${user}" method="post">
+  <label for="firstName">Name of Service</label>
+  <input type="text" th:field="*{firstName}" id="firstName" placeholder="First Name">
+  <label for="lastName">Service Price</label>
+  <input type="text" th:field="*{lastName}" id="lastName" placeholder="Last Name">
+  <input type="submit" value="Create User">
+</form>
+-->
+
+<form th:method="POST" th:action="@{/all_services}" th:object="${allServices}">
+  <label for="name">Enter name: </label>
+  <input type="text" th:field="*{name}" id="name"/>
+  <br/>
+  <label for="servicePrice">Enter service Price: </label>
+  <input type="text" th:field="*{servicePrice}" id="servicePrice"/>
+  <br/>
+  <input type="submit" value="Add Service">
+</form>
+
+</body>
+</html>

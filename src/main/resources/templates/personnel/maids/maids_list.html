@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Maids</title>
+</head>
+<body>
+
+<div th:if="${ #lists.isEmpty(maidsList)}">
+    <p>There are no Maids</p>
+</div>
+<div th:if="${maidsList != null}">
+    <h2>All maids</h2>
+    <table>
+        <thead>
+        <tr>
+            <th>Maid ID</th>
+            <th>Name</th>
+            <th>Middle name</th>
+            <th>Lastname</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="maids : ${maidsList}">
+            <td th:text="${maids.maidId}"></td>
+            <td th:text="${maids.name}"></td>
+            <td th:text="${maids.middleName}"></td>
+            <td th:text="${maids.lastName}"></td>
+            <td><a th:href="@{service_edit/{id}(id=${maids.maidId})}">Edit</a></td>
+            <td><a th:href="@{service_delete/{id}(id=${maids.maidId})}">Delete</a></td>
+        </tr>
+        </tbody>
+    </table>
+
+    <p><a href="/hotel_management/personnel/maids/maid_create">Add maids</a></p>
+</div>
+
+</body>
+</html>

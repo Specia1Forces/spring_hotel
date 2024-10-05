@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update service</title>
+</head>
+<body>
+<form th:method="PATCH" th:action="@{/all_services/{id}(id=${allServices.serviceId})}" th:object="${allServices}">
+    <label for="name">Enter name: </label>
+    <input type="text" th:field="${allServices.name}" id="name"/>
+    <br/>
+    <label for="servicePrice">Enter service Price: </label>
+    <input type="text" th:field="${allServices.servicePrice}" id="servicePrice"/>
+    <br/>
+    <input type="submit" value="Update!"/>
+</form>
+
+</body>
+</html>

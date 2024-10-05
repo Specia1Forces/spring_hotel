@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Create contracts</title>
+</head>
+<body>
+<h1>Create contracts</h1>
+
+<form th:method="PATCH" th:action="@{/hotel_management/clients_and_contracts/add}" th:object="${contracts}">
+    <label for="person">Выберите человека:</label>
+    <select th:object="${clientOfHotel}" th:field="*{clientId}" id="person">
+        <option th:each="clientOfHotel : ${clientOfHotelList}" th:value="${clientOfHotel.getClientId()}"
+                th:text="${clientOfHotel.clientId}"></option>
+    </select>
+    <br/>
+    <label for="termOfStay">Enter term of stay: </label>
+    <input type="text" th:field="${contracts.termOfStay}" id="termOfStay"/>
+    <br/>
+
+    <label for="dateConclusionAgreement">Enter date conclusion agreement:(dd/mm/yyyy) </label>
+    <input type="text" th:field="${contracts.dateConclusionAgreement}" id="dateConclusionAgreement"/>
+    <br/>
+
+
+    <input type="submit" value="Create contracts" />
+</form>
+
+
+</body>
+</html>
